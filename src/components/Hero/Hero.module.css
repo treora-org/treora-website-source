@@ -1,5 +1,4 @@
 .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; position:relative; padding-top:120px; padding-bottom:80px; overflow:hidden; }
-.grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,black 30%,transparent 100%); }
 .inner { position:relative; z-index:1; }
 .badge { display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:.72rem; color:var(--text-secondary); border:1px solid var(--border); border-radius:100px; padding:6px 14px; margin-bottom:48px; letter-spacing:.04em; animation:fadeUp .6s ease .1s both; }
 .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 6px #4ade80; animation:pulse 2s infinite; }

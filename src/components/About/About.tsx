@@ -3,16 +3,16 @@ import styles from './About.module.css';
 
 const DIFFERENTIATORS = [
   {
-    title: 'We ship.',
-    desc: 'Not in six months. We move at product-company pace because that\'s the only pace we know.',
+    title: 'Startup-Ready.',
+    desc: 'Whether you\'re launching your first product or scaling operations — we bring clarity, speed, and execution.',
   },
   {
-    title: 'No juniors.',
-    desc: 'Every engineer on your project is senior. No handoffs to someone learning on your dime.',
+    title: 'Technical Expertise.',
+    desc: 'We combine deep engineering knowledge with creative execution to deliver solutions that actually work at scale.',
   },
   {
-    title: 'Quality isn\'t a phase.',
-    desc: 'Tests, code review, observability — baked in from the start, not bolted on before launch.',
+    title: 'User-Focused.',
+    desc: 'Every line of code is built around your users\' needs — modern, scalable, and beautiful by design.',
   },
 ];
 
@@ -40,22 +40,21 @@ export default function About() {
           <motion.div className={styles.left} variants={fadeUp}>
             <span className={styles.sectionTag}>// about</span>
             <h2 className={styles.title}>
-              Engineers who've done it before.
+              Who We Are
             </h2>
             <p className={styles.body}>
-              We're three engineers working at US-based product companies — building and shipping
-              software used by real users at real scale. Freelancing is our way of applying those
-              same standards to smaller teams who deserve the same level of engineering.
+              At Treora, we combine technical expertise with creative execution to deliver
+              impactful digital solutions. We specialize in building modern, scalable, and
+              user-focused applications tailored to your business needs.
             </p>
             <p className={styles.body}>
-              We've worked across e-commerce platforms, AI-integrated tools, and consumer
-              mobile products. We know what it takes to go from spec to production without
-              the drama.
+              Whether you're a startup launching your first product or a business scaling
+              operations — we bring clarity, speed, and execution.
             </p>
             <div className={styles.companies}>
-              <span className={styles.companiesLabel}>Backgrounds in</span>
+              <span className={styles.companiesLabel}>Specializing in</span>
               <div className={styles.tags}>
-                {['E-Commerce', 'SaaS', 'FinTech', 'Consumer Apps', 'AI Products'].map(t => (
+                {['Web Development', 'Mobile Apps', 'SaaS', 'Backend & APIs', 'UI/UX Design'].map(t => (
                   <span key={t} className={styles.tag}>{t}</span>
                 ))}
               </div>

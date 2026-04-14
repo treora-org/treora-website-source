@@ -5,10 +5,11 @@ import logoPeaks from '../../assets/logo.svg';
 import styles from './Navbar.module.css';
 
 const NAV_LINKS = [
-  { label: 'Expertise', href: '#expertise' },
   { label: 'Services', href: '#services' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Process', href: '#process' },
+  { label: 'Pricing', href: '#pricing' },
   { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
 ];
 
 const CONTACT_EMAIL = 'treora.admin@gmail.com';

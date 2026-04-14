@@ -10,32 +10,28 @@ interface ExpertiseItem {
 
 const EXPERTISE: ExpertiseItem[] = [
   {
-    tag: '01',
-    title: 'Fullstack\nDevelopment',
-    description:
-      'End-to-end web application development. From database schema to pixel-perfect UI — we own the whole stack and ship complete features.',
-    skills: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'REST & GraphQL', 'Next.js'],
+    tag: '⚡',
+    title: 'Fast\nDelivery',
+    description: 'No delays, no excuses. We move at startup pace — because that\'s the only pace that matters when you\'re building.',
+    skills: ['Agile sprints', 'Rapid prototyping', 'Iterative releases', 'CI/CD pipelines'],
   },
   {
-    tag: '02',
-    title: 'Mobile\nEngineering',
-    description:
-      'Cross-platform mobile apps built in Flutter. One codebase, native performance on iOS and Android. Proven in production at scale.',
-    skills: ['Flutter', 'Dart', 'iOS', 'Android', 'State Management', 'Native Integrations'],
+    tag: '🧠',
+    title: 'Problem Solving\nApproach',
+    description: 'We don\'t just write code — we solve business problems. Every technical decision is tied to a real outcome.',
+    skills: ['Systems thinking', 'Architecture reviews', 'Tech consulting', 'Root cause analysis'],
   },
   {
-    tag: '03',
-    title: 'Cloud &\nInfrastructure',
-    description:
-      'AWS-first cloud architecture. We design, deploy, and maintain scalable infrastructure that grows with your product.',
-    skills: ['AWS', 'Terraform', 'Docker', 'CI/CD', 'Serverless', 'Observability'],
+    tag: '🎯',
+    title: 'Business-Focused\nSolutions',
+    description: 'We build for results. Every feature, every screen, every API endpoint is designed to drive your business forward.',
+    skills: ['KPI-driven builds', 'Conversion optimization', 'Growth-ready architecture', 'Market fit focus'],
   },
   {
-    tag: '04',
-    title: 'E-Commerce\n& AI',
-    description:
-      "Deep experience integrating AI into commerce flows and building intelligent product features. We've shipped both at US product companies.",
-    skills: ['LLM Integration', 'Stripe', 'Recommendation Engines', 'Search', 'Analytics', 'A/B Testing'],
+    tag: '🔒',
+    title: 'Clean &\nScalable Code',
+    description: 'Production-grade code that scales. Security, performance, and maintainability — baked in from day one, not bolted on.',
+    skills: ['TypeScript', 'Code reviews', 'Testing coverage', 'Security best practices'],
   },
 ];
 
@@ -53,21 +49,21 @@ export default function Expertise() {
   return (
     <section className={styles.section} id="expertise">
       <div className="container">
-        <motion.div 
+        <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className={styles.sectionTag}>// expertise</span>
-          <h2 className={styles.title}>What we're built for</h2>
+          <span className={styles.sectionTag}>// why treora</span>
+          <h2 className={styles.title}>Why Clients Choose Treora</h2>
           <p className={styles.subtitle}>
-            Not a generalist shop. We go deep in the areas where shipping fast actually matters.
+            Not just developers — strategic partners who care about your outcome as much as you do.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className={styles.grid}
           initial="hidden"
           whileInView="show"
@@ -87,7 +83,7 @@ function ExpertiseCard({ tag, title, description, skills }: ExpertiseItem) {
   return (
     <motion.article className={styles.card} variants={item}>
       <div className={styles.cardTop}>
-        <span className={styles.cardTag}>{tag}</span>
+        <span className={styles.cardTag} style={{ fontSize: '1.5rem' }}>{tag}</span>
         <div className={styles.cardAccentLine} />
       </div>
       <h3 className={styles.cardTitle}>

@@ -5,44 +5,39 @@ interface Service {
   number: string;
   title: string;
   description: string;
+  bullets: string[];
 }
 
 const SERVICES: Service[] = [
   {
     number: '01',
-    title: 'Product Development',
-    description:
-      'Take an idea from 0 to launch. We handle architecture decisions, technical implementation, and delivery — so you don\'t have to babysit.',
+    title: 'Web Development',
+    description: 'High-performance websites and web applications built with the modern stack.',
+    bullets: ['React, Next.js & Vite', 'Responsive & modern UI/UX', 'SEO-optimized builds'],
   },
   {
     number: '02',
-    title: 'MVP Sprints',
-    description:
-      'Need something fast? We run tight, focused sprints to validate your concept with a working product. Weeks, not months.',
+    title: 'App Development',
+    description: 'Flutter mobile apps that run natively on Android and iOS with real-time capabilities.',
+    bullets: ['Flutter mobile apps (Android & iOS)', 'Real-time features (chat, streaming, dashboards)', 'Scalable architecture'],
   },
   {
     number: '03',
-    title: 'Technical Consulting',
-    description:
-      'Stuck on an architecture problem, a scaling issue, or a tech stack decision? We\'ll bring a senior engineering lens to your problem.',
+    title: 'Backend & APIs',
+    description: 'Robust server infrastructure and secure, scalable API systems.',
+    bullets: ['Supabase / Firebase / Node.js', 'Secure authentication & database design', 'Payment integrations (Stripe)'],
   },
   {
     number: '04',
-    title: 'Team Augmentation',
-    description:
-      'Need extra bandwidth on an existing team? We slot in and work like we\'re in-house — same standards, less overhead.',
+    title: 'UI/UX Design',
+    description: 'Clean, conversion-focused designs that put users first.',
+    bullets: ['Clean, conversion-focused designs', 'Interactive prototypes', 'User-first experience'],
   },
   {
     number: '05',
-    title: 'AI Feature Integration',
-    description:
-      'LLMs, recommendation systems, intelligent search. We\'ve shipped AI features into production and know what it takes to make them work.',
-  },
-  {
-    number: '06',
-    title: 'Cloud Architecture',
-    description:
-      'AWS infrastructure designed for scale. Migration, cost optimization, observability — whatever state your cloud is in, we improve it.',
+    title: 'Custom Solutions',
+    description: 'Bespoke platforms and systems tailored exactly to your business workflow.',
+    bullets: ['SaaS platforms', 'Admin dashboards', 'Automation systems'],
   },
 ];
 
@@ -60,7 +55,7 @@ export default function Services() {
   return (
     <section className={styles.section} id="services">
       <div className="container">
-        <motion.div 
+        <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,10 +63,10 @@ export default function Services() {
           transition={{ duration: 0.5 }}
         >
           <span className={styles.sectionTag}>// services</span>
-          <h2 className={styles.title}>How we engage</h2>
+          <h2 className={styles.title}>What We Do</h2>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className={styles.list}
           initial="hidden"
           whileInView="show"
@@ -87,13 +82,18 @@ export default function Services() {
   );
 }
 
-function ServiceRow({ number, title, description, last }: Service & { last: boolean }) {
+function ServiceRow({ number, title, description, bullets, last }: Service & { last: boolean }) {
   return (
     <motion.div className={`${styles.row} ${last ? styles.rowLast : ''}`} variants={item}>
       <span className={styles.number}>{number}</span>
       <div className={styles.content}>
         <h3 className={styles.rowTitle}>{title}</h3>
         <p className={styles.rowDesc}>{description}</p>
+        <ul className="mt-3 flex flex-wrap gap-2">
+          {bullets.map(b => (
+            <li key={b} className="text-xs font-mono text-foreground/50 border border-current/20 rounded-full px-3 py-1">{b}</li>
+          ))}
+        </ul>
       </div>
       <div className={styles.arrow}>→</div>
     </motion.div>

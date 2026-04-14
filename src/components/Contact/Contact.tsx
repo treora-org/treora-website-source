@@ -61,16 +61,16 @@ export default function Contact() {
         >
           <div className={styles.left}>
             <span className={styles.sectionTag}>contact</span>
-            <h2 className={styles.title}>Have something to build?</h2>
+            <h2 className={styles.title}>Let's Build Something Amazing</h2>
             <p className={styles.body}>
-              Tell us what you're working on. No commitments. We'll let you know
-              if it's a good fit and what we'd propose.
+              Have an idea or project in mind? Let's turn it into reality.
+              Tell us what you're working on — no commitments.
             </p>
             <div className={styles.meta}>
               {[
-                ['Response time', 'Within 48 hours'],
+                ['Response time', 'Within 24 hours'],
                 ['Availability', 'Open to projects'],
-                ['Timezone', 'US (flexible)'],
+                ['Location', 'Remote — Worldwide'],
               ].map(([label, value]) => (
                 <div key={label} className={styles.metaRow}>
                   <span className={styles.metaLabel}>{label}</span>

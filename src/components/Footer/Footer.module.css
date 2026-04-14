@@ -1,0 +1,8 @@
+.footer { border-top:1px solid var(--border); padding:40px 0; }
+.inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.logo { font-family:var(--font-mono); font-size:.9rem; font-weight:500; color:var(--text-primary); }
+.copy { font-size:.78rem; color:var(--text-muted); font-weight:300; }
+.links { display:flex; gap:28px; }
+.link { font-size:.78rem; color:var(--text-muted); transition:color .2s; letter-spacing:.02em; }
+.link:hover { color:var(--text-secondary); }
+@media(max-width:768px) { .inner { flex-direction:column; text-align:center; gap:16px; } }

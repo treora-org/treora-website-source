@@ -2,10 +2,10 @@ import { useState, useRef } from 'react';
 import styles from './Contact.module.css';
 
 // ── EmailJS config ──────────────────────────────────────────────
-// Replace these three values after setting up https://www.emailjs.com
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+// Replace these values in your .env file
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
 const CONTACT_EMAIL = 'hello@treora.dev';
 // ───────────────────────────────────────────────────────────────
 
@@ -35,8 +35,9 @@ export default function Contact() {
       if (!window.emailjs) throw new Error('EmailJS not loaded');
       window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
       await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        from_name:  name,
-        from_email: email,
+        name:  name,
+        email: email,
+        time: new Date().toLocaleString(),
         message,
         reply_to:   email,
       });

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "../ThemeProvider";
+import { Moon, Sun, X, Menu } from 'lucide-react';
+import { useTheme } from '../ThemeProvider';
 import logoPeaks from '../../assets/logo.svg';
 import styles from './Navbar.module.css';
 
@@ -25,41 +25,97 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  const close = () => setMenuOpen(false);
+
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
-        <a href="#top" className={styles.logo}>
-          <img src={logoPeaks} alt="Treora Peaks" className="h-6 w-auto mr-2 dark:invert transition-all" />
+        {/* Logo */}
+        <a href="#top" className={styles.logo} onClick={close}>
+          <img src={logoPeaks} alt="Treora Peaks" className={`${styles.logoImg} dark:invert`} />
           <span className={styles.logoText}>Treora</span>
           <span className={styles.logoDot}>.</span>
         </a>
-        <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''} flex items-center`}>
+
+        {/* Desktop nav */}
+        <nav className={styles.desktopNav}>
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className={styles.navLink} onClick={() => setMenuOpen(false)}>
+            <a key={link.href} href={link.href} className={styles.navLink}>
               {link.label}
             </a>
           ))}
-          <a 
-            href={`mailto:${CONTACT_EMAIL}?subject=Let's%20Talk%20—%20Project%20Inquiry`} 
-            className="text-sm font-semibold rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 hover:scale-105 px-6 py-2 transition-all duration-300 text-foreground"
+          <a
+            href={`mailto:${CONTACT_EMAIL}?subject=Let's%20Talk%20—%20Project%20Inquiry`}
+            className={styles.ctaBtn}
           >
             Let's Talk
           </a>
         </nav>
-        
-        <div className="flex items-center gap-2 md:gap-4 ml-auto md:ml-0">
-          <button 
+
+        {/* Right controls */}
+        <div className={styles.controls}>
+          <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors text-black dark:text-white flex items-center justify-center cursor-pointer"
+            className={styles.themeToggle}
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <button className={styles.menuToggle} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-            <span className={styles.bar} /><span className={styles.bar} /><span className={styles.bar} />
+          <button
+            className={styles.menuToggle}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
+
+      {/* Mobile overlay */}
+      {menuOpen && (
+        <div className={styles.mobileOverlay} onClick={close}>
+          <nav className={styles.mobileNav} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.mobileHeader}>
+              <a href="#top" className={styles.logo} onClick={close}>
+                <img src={logoPeaks} alt="Treora Peaks" className={`${styles.logoImg} dark:invert`} />
+                <span className={styles.logoText}>Treora</span>
+                <span className={styles.logoDot}>.</span>
+              </a>
+              <button className={styles.closeBtn} onClick={close} aria-label="Close menu">
+                <X size={24} />
+              </button>
+            </div>
+
+            <div className={styles.mobileLinks}>
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={styles.mobileNavLink}
+                  onClick={close}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            <a
+              href={`mailto:${CONTACT_EMAIL}?subject=Let's%20Talk%20—%20Project%20Inquiry`}
+              className={styles.mobileCta}
+              onClick={close}
+            >
+              Let's Talk
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

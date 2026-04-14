@@ -15,4 +15,5 @@
 .author { font-weight: 600; font-size: .9rem; }
 .role { font-family: var(--font-mono); font-size: .72rem; color: var(--text-muted); letter-spacing: .04em; }
 @media(max-width: 1024px) { .statsRow { grid-template-columns: repeat(2, 1fr); } .testimonials { grid-template-columns: repeat(2, 1fr); } }
-@media(max-width: 640px) { .statsRow { grid-template-columns: repeat(2, 1fr); } .testimonials { grid-template-columns: 1fr; } }
+@media(max-width: 640px) { .statsRow { grid-template-columns: repeat(2, 1fr); gap: 12px; } .testimonials { grid-template-columns: 1fr; } .statCard { padding: 24px 16px; } .statValue { font-size: 2rem; } }
+

@@ -19,4 +19,6 @@
 .ctaPrimary:hover { opacity: .85; transform: translateY(-1px); }
 .ctaSecondary { border: 1px solid var(--border); color: var(--text-primary); backdrop-filter: blur(8px); }
 .ctaSecondary:hover { background: color-mix(in srgb, var(--text-primary) 8%, transparent); transform: translateY(-1px); }
-@media(max-width: 1024px) { .grid { grid-template-columns: 1fr; max-width: 440px; } }
+@media(max-width: 1024px) { .grid { grid-template-columns: 1fr; max-width: 480px; } }
+@media(max-width: 640px) { .grid { max-width: 100%; } .card { padding: 32px 24px; } }
+

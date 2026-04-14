@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styles from './About.module.css';
 
 const DIFFERENTIATORS = [
@@ -15,12 +16,28 @@ const DIFFERENTIATORS = [
   },
 ];
 
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.2 } }
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
 export default function About() {
   return (
     <section className={styles.section} id="about">
       <div className="container">
-        <div className={styles.layout}>
-          <div className={styles.left}>
+        <motion.div 
+          className={styles.layout}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+        >
+          <motion.div className={styles.left} variants={fadeUp}>
             <span className={styles.sectionTag}>// about</span>
             <h2 className={styles.title}>
               Engineers who've done it before.
@@ -43,9 +60,9 @@ export default function About() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.right}>
+          <motion.div className={styles.right} variants={fadeUp}>
             {DIFFERENTIATORS.map((d) => (
               <div key={d.title} className={styles.diffItem}>
                 <div className={styles.diffDot} />
@@ -55,8 +72,8 @@ export default function About() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

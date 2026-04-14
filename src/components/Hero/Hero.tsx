@@ -1,46 +1,82 @@
+import { motion } from 'framer-motion';
+import StardustBackground from '../ui/StardustBackground';
 import styles from './Hero.module.css';
 
 const CONTACT_EMAIL = 'treora.admin@gmail.com';
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.2 }
+  }
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  show: { y: 0, opacity: 1, transition: { type: "spring" as const, stiffness: 70 } }
+};
+
 export default function Hero() {
   return (
     <section className={styles.hero} id="top">
-      <div className={styles.grid} aria-hidden="true" />
-      <div className={`container ${styles.inner}`}>
-        <div className={styles.badge}>
+      <StardustBackground />
+      <motion.div 
+        className={`container ${styles.inner}`}
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.div className={styles.badge} variants={item}>
           <span className={styles.dot} />
           <span>Available for new projects</span>
-        </div>
-        <h1 className={styles.headline}>
+        </motion.div>
+        
+        <motion.h1 className={styles.headline} variants={item}>
           <span className={styles.headlineLine}>We build</span>
           <span className={`${styles.headlineLine} ${styles.muted}`}>products</span>
           <span className={styles.headlineLine}>that ship.</span>
-        </h1>
-        <p className={styles.subtext}>
+        </motion.h1>
+        
+        <motion.p className={styles.subtext} variants={item}>
           Three engineers from US product companies — fullstack, mobile, and cloud.
           We bring the same speed and quality standards from our day jobs to your business.
-        </p>
-        <div className={styles.actions}>
+        </motion.p>
+        
+        <motion.div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mt-10 mb-20" variants={item}>
           <a
             href={`mailto:${CONTACT_EMAIL}?subject=Start%20a%20Project%20—%20Inquiry`}
-            className={styles.primaryBtn}
+            className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 hover:scale-105 hover:shadow-xl transition-all duration-300 text-foreground shadow-lg"
           >
             Start a project
           </a>
-          <a href="#about" className={styles.secondaryBtn}>Who we are →</a>
-        </div>
-        <div className={styles.stats}>
+          <a 
+            href="#about" 
+            className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-sm text-foreground"
+          >
+            Who we are →
+          </a>
+        </motion.div>
+
+        <motion.div className={styles.stats} variants={container}>
           {STATS.map((s) => (
-            <div key={s.label} className={styles.stat}>
+            <motion.div key={s.label} className={styles.stat} variants={item}>
               <span className={styles.statValue}>{s.value}</span>
               <span className={styles.statLabel}>{s.label}</span>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
-      <div className={styles.scrollIndicator} aria-hidden="true">
+        </motion.div>
+      </motion.div>
+      
+      <motion.div 
+        className={styles.scrollIndicator} 
+        aria-hidden="true"
+        initial={{ opacity: 0, x: "-50%" }}
+        animate={{ opacity: 1, x: "-50%" }}
+        transition={{ delay: 1.5, duration: 1 }}
+      >
         <span className={styles.scrollLine} />
-      </div>
+      </motion.div>
     </section>
   );
 }

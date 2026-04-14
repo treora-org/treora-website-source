@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import styles from './Contact.module.css';
 
 // ── EmailJS config ──────────────────────────────────────────────
@@ -51,7 +52,13 @@ export default function Contact() {
   return (
     <section className={styles.section} id="contact">
       <div className="container">
-        <div className={styles.layout}>
+        <motion.div 
+          className={styles.layout}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+        >
           <div className={styles.left}>
             <span className={styles.sectionTag}>contact</span>
             <h2 className={styles.title}>Have something to build?</h2>
@@ -109,7 +116,7 @@ export default function Contact() {
                 </div>
                 {validationErr && <p className={styles.validationErr}>Please fill in all fields before sending.</p>}
                 <button
-                  className={`${styles.submitBtn} ${state === 'loading' ? styles.loading : ''}`}
+                  className={`w-full inline-flex items-center justify-center px-8 py-4 mt-2 text-sm font-semibold rounded-md bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 hover:scale-[1.02] hover:shadow-xl transition-all duration-300 text-foreground shadow-sm ${state === 'loading' ? 'opacity-50 cursor-not-allowed' : ''}`}
                   onClick={handleSubmit}
                   disabled={state === 'loading'}
                 >
@@ -120,7 +127,7 @@ export default function Contact() {
               </div>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

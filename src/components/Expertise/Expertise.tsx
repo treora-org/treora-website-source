@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styles from './Expertise.module.css';
 
 interface ExpertiseItem {
@@ -38,23 +39,45 @@ const EXPERTISE: ExpertiseItem[] = [
   },
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.15 } }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
 export default function Expertise() {
   return (
     <section className={styles.section} id="expertise">
       <div className="container">
-        <div className={styles.header}>
+        <motion.div 
+          className={styles.header}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+        >
           <span className={styles.sectionTag}>// expertise</span>
           <h2 className={styles.title}>What we're built for</h2>
           <p className={styles.subtitle}>
             Not a generalist shop. We go deep in the areas where shipping fast actually matters.
           </p>
-        </div>
+        </motion.div>
 
-        <div className={styles.grid}>
-          {EXPERTISE.map((item) => (
-            <ExpertiseCard key={item.tag} {...item} />
+        <motion.div 
+          className={styles.grid}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={container}
+        >
+          {EXPERTISE.map((exp) => (
+            <ExpertiseCard key={exp.tag} {...exp} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -62,7 +85,7 @@ export default function Expertise() {
 
 function ExpertiseCard({ tag, title, description, skills }: ExpertiseItem) {
   return (
-    <article className={styles.card}>
+    <motion.article className={styles.card} variants={item}>
       <div className={styles.cardTop}>
         <span className={styles.cardTag}>{tag}</span>
         <div className={styles.cardAccentLine} />
@@ -78,6 +101,6 @@ function ExpertiseCard({ tag, title, description, skills }: ExpertiseItem) {
           <li key={s} className={styles.skill}>{s}</li>
         ))}
       </ul>
-    </article>
+    </motion.article>
   );
 }

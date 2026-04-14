@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" fill="none" stroke-linejoin="round">
+  <style>
+    .outer { stroke: #000; }
+    .inner { stroke: #fff; }
+    @media (prefers-color-scheme: dark) {
+      .outer { stroke: #fff; }
+      .inner { stroke: #000; }
+    }
+  </style>
+  <g class="outer" stroke-width="8">
+    <path d="M50 15 L25 70 H75 Z" />
+    <path d="M28 35 L5 70 H50 Z" />
+    <path d="M72 35 L50 70 H95 Z" />
+  </g>
+  <g class="inner" stroke-width="2">
+    <path d="M50 15 L25 70 H75 Z" />
+    <path d="M28 35 L5 70 H50 Z" />
+    <path d="M72 35 L50 70 H95 Z" />
+  </g>
+</svg>

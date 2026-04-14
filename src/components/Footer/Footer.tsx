@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import logoPeaks from '../../assets/logo.svg';
 import styles from './Footer.module.css';
 
 const CONTACT_EMAIL = 'treora.admin@gmail.com';
@@ -13,7 +14,10 @@ export default function Footer() {
       transition={{ duration: 0.8 }}
     >
       <div className={`container ${styles.inner}`}>
-        <div className={styles.logo}>Treora.</div>
+        <div className={`${styles.logo} flex items-center`}>
+          <img src={logoPeaks} alt="Treora Peaks" className="h-5 w-auto mr-2 dark:invert transition-all" />
+          <span>Treora.</span>
+        </div>
         <p className={styles.copy}>© {new Date().getFullYear()} Treora. Three engineers. One standard.</p>
         <div className={styles.links}>
           <a href="#expertise" className={styles.link}>Expertise</a>

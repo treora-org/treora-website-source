@@ -1,6 +1,6 @@
 import styles from './Hero.module.css';
 
-const CONTACT_EMAIL = 'hello@treora.dev';
+const CONTACT_EMAIL = 'treora.admin@gmail.com';
 
 export default function Hero() {
   return (
@@ -46,8 +46,8 @@ export default function Hero() {
 }
 
 const STATS = [
-  { value: '3',   label: 'Senior Engineers'   },
-  { value: '10+', label: 'Years Combined'     },
-  { value: 'US',  label: 'Product Background' },
-  { value: '∞',   label: 'Cups of Coffee'     },
+  { value: '3', label: 'Senior Engineers' },
+  { value: '10+', label: 'Years Combined' },
+  { value: 'US', label: 'Product Background' },
+  { value: '∞', label: 'Cups of Coffee' },
 ];

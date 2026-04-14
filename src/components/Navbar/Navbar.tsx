@@ -3,12 +3,12 @@ import styles from './Navbar.module.css';
 
 const NAV_LINKS = [
   { label: 'Expertise', href: '#expertise' },
-  { label: 'Services',  href: '#services'  },
-  { label: 'About',     href: '#about'     },
-  { label: 'Contact',   href: '#contact'   },
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
 ];
 
-const CONTACT_EMAIL = 'hello@treora.dev';
+const CONTACT_EMAIL = 'treora.admin@gmail.com';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

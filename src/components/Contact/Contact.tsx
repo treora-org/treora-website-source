@@ -3,10 +3,10 @@ import styles from './Contact.module.css';
 
 // ── EmailJS config ──────────────────────────────────────────────
 // Replace these values in your .env file
-const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
-const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
-const CONTACT_EMAIL = 'hello@treora.dev';
+const CONTACT_EMAIL = 'treora.admin@gmail.com';
 // ───────────────────────────────────────────────────────────────
 
 declare global {
@@ -18,13 +18,13 @@ type FormState = 'idle' | 'loading' | 'success' | 'error';
 export default function Contact() {
   const [state, setState] = useState<FormState>('idle');
   const [validationErr, setValidationErr] = useState(false);
-  const nameRef    = useRef<HTMLInputElement>(null);
-  const emailRef   = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
 
   const handleSubmit = async () => {
-    const name    = nameRef.current?.value.trim() ?? '';
-    const email   = emailRef.current?.value.trim() ?? '';
+    const name = nameRef.current?.value.trim() ?? '';
+    const email = emailRef.current?.value.trim() ?? '';
     const message = messageRef.current?.value.trim() ?? '';
 
     if (!name || !email || !message) { setValidationErr(true); return; }
@@ -35,11 +35,11 @@ export default function Contact() {
       if (!window.emailjs) throw new Error('EmailJS not loaded');
       window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
       await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        name:  name,
+        name: name,
         email: email,
         time: new Date().toLocaleString(),
         message,
-        reply_to:   email,
+        reply_to: email,
       });
       setState('success');
     } catch (err) {
@@ -62,8 +62,8 @@ export default function Contact() {
             <div className={styles.meta}>
               {[
                 ['Response time', 'Within 48 hours'],
-                ['Availability',  'Open to projects'],
-                ['Timezone',      'US (flexible)'],
+                ['Availability', 'Open to projects'],
+                ['Timezone', 'US (flexible)'],
               ].map(([label, value]) => (
                 <div key={label} className={styles.metaRow}>
                   <span className={styles.metaLabel}>{label}</span>

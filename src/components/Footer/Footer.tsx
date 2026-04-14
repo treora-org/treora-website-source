@@ -18,7 +18,7 @@ export default function Footer() {
           <img src={logoPeaks} alt="Treora Peaks" className="h-5 w-auto mr-2 dark:invert transition-all" />
           <span>Treora.</span>
         </div>
-        <p className={styles.copy}>© {new Date().getFullYear()} Treora. Three engineers. One standard.</p>
+        <p className={styles.copy}>© {new Date().getFullYear()} Treora — Building digital experiences that drive results.</p>
         <div className={styles.links}>
           <a href="#expertise" className={styles.link}>Expertise</a>
           <a href="#services" className={styles.link}>Services</a>

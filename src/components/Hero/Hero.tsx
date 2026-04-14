@@ -21,7 +21,7 @@ export default function Hero() {
   return (
     <section className={styles.hero} id="top">
       <StardustBackground />
-      <motion.div 
+      <motion.div
         className={`container ${styles.inner}`}
         variants={container}
         initial="hidden"
@@ -31,30 +31,30 @@ export default function Hero() {
           <span className={styles.dot} />
           <span>Available for new projects</span>
         </motion.div>
-        
+
         <motion.h1 className={styles.headline} variants={item}>
-          <span className={styles.headlineLine}>We build</span>
-          <span className={`${styles.headlineLine} ${styles.muted}`}>products</span>
-          <span className={styles.headlineLine}>that ship.</span>
+          <span className={styles.headlineLine}>Build. Scale.</span>
+          <span className={`${styles.headlineLine} ${styles.muted}`}>Deliver —</span>
+          <span className={styles.headlineLine}>Without Limits.</span>
         </motion.h1>
-        
+
         <motion.p className={styles.subtext} variants={item}>
-          Three engineers from US product companies — fullstack, mobile, and cloud.
-          We bring the same speed and quality standards from our day jobs to your business.
+          Treora is a full-service freelance studio helping startups and businesses design,
+          build, and scale high-performance digital products — fast, reliable, and results-driven.
         </motion.p>
-        
+
         <motion.div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mt-10 mb-20" variants={item}>
-          <a
-            href={`mailto:${CONTACT_EMAIL}?subject=Start%20a%20Project%20—%20Inquiry`}
+          {/* <a
+            href={`mailto:${CONTACT_EMAIL}?subject=Get%20Started%20—%20Project%20Inquiry`}
             className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 hover:scale-105 hover:shadow-xl transition-all duration-300 text-foreground shadow-lg"
           >
-            Start a project
-          </a>
-          <a 
-            href="#about" 
+            🚀 Get Started
+          </a> */}
+          <a
+            href={`mailto:${CONTACT_EMAIL}?subject=Hire%20Us%20—%20Freelance%20Inquiry`}
             className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-sm text-foreground"
           >
-            Who we are →
+            🚀 Hire Us
           </a>
         </motion.div>
 
@@ -67,9 +67,9 @@ export default function Hero() {
           ))}
         </motion.div>
       </motion.div>
-      
-      <motion.div 
-        className={styles.scrollIndicator} 
+
+      <motion.div
+        className={styles.scrollIndicator}
         aria-hidden="true"
         initial={{ opacity: 0, x: "-50%" }}
         animate={{ opacity: 1, x: "-50%" }}

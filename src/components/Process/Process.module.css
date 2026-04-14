@@ -1,0 +1,13 @@
+.section { padding: 120px 0; border-top: 1px solid var(--border); }
+.header { margin-bottom: 64px; }
+.sectionTag { font-family: var(--font-mono); font-size: .72rem; color: var(--text-muted); letter-spacing: .08em; text-transform: uppercase; display: block; margin-bottom: 16px; }
+.title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -.03em; margin-bottom: 16px; }
+.subtitle { font-size: 1rem; color: var(--text-secondary); max-width: 520px; line-height: 1.7; }
+.steps { max-width: 700px; }
+.stepRow { display: flex; gap: 32px; }
+.stepLeft { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+.stepNum { font-family: var(--font-display); font-size: 1rem; font-weight: 800; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: color-mix(in srgb, var(--bg-primary) 70%, transparent); backdrop-filter: blur(8px); }
+.connector { width: 1px; flex: 1; min-height: 40px; background: linear-gradient(to bottom, var(--border), transparent); margin: 8px 0; }
+.stepContent { padding-bottom: 48px; }
+.stepTitle { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: 8px; }
+.stepDesc { font-size: .9rem; color: var(--text-secondary); line-height: 1.7; }

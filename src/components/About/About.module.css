@@ -12,4 +12,5 @@
 .diffDot { width:6px; height:6px; border-radius:50%; background:var(--text-primary); margin-top:8px; flex-shrink:0; }
 .diffTitle { font-family:var(--font-display); font-size:1.1rem; font-weight:700; letter-spacing:-.02em; margin-bottom:8px; }
 .diffDesc { font-size:.875rem; color:var(--text-secondary); font-weight:300; line-height:1.7; }
-@media(max-width:900px) { .layout { grid-template-columns:1fr; gap:56px; } .right { padding-top:0; } }
+@media(max-width:900px) { .layout { grid-template-columns:1fr; gap:48px; } .right { padding-top:0; } }
+@media(max-width:768px) { .title { font-size:clamp(1.6rem,6vw,2rem); } .diffItem { gap:16px; padding:24px 0; } }

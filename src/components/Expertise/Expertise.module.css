@@ -16,3 +16,4 @@
 .skill { font-family:var(--font-mono); font-size:.68rem; letter-spacing:.05em; color:var(--text-secondary); border:1px solid var(--border); padding:4px 10px; border-radius:var(--radius-sm); transition:all .2s; }
 .card:hover .skill { border-color:var(--border-hover); color:var(--text-primary); }
 @media(max-width:900px) { .grid { grid-template-columns:1fr; } .card { padding:36px 28px; } }
+@media(max-width:480px) { .card { padding:28px 20px; } .cardTitle { font-size:1.4rem; } }
